@@ -1,6 +1,14 @@
 # spritecloud-demo
 ## Description:
-This documant aims to show the purpose of the repo as well as the process to install needed tools for executing tests.
+This document aims to show the purpose of the repo as well as the process to install needed tools for executing tests. 
+
+### Assumptions:
+General -
+- Aim is to understand my way of thinking through coding.
+API - 
+- API testing should be done with the listed requests, not to test the api endpoints of the site itself.
+UI - 
+- Tests should be done emmulating how a user would use the app.
 
 ### URLs to be used for the demo:
 - https://www.saucedemo.com

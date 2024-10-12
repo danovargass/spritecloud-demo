@@ -1,6 +1,5 @@
 import { defineConfig, devices, PlaywrightTestConfig } from '@playwright/test';
-import baseEnvUrl from './envBaseURL';
-
+import envBaseURL from './utils/envBaseURL';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -52,12 +51,12 @@ export default defineConfig({
     },
     {
       name: 'apiUrl',
-      use: { baseURL: baseEnvUrl.api.apiEndpoint, },
+      use: { baseURL: envBaseURL.api.apiEndpoint, },
 
     },
     {
       name: 'uiUrl',
-      use: { baseURL: baseEnvUrl.ui.uiEndpoint, }
+      use: { baseURL: envBaseURL.ui.uiEndpoint, }
     }
 
     /* Test against mobile viewports. */

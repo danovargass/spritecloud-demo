@@ -8,15 +8,17 @@ import { checkoutPage } from '../components/checkout';
 const baseURL = envBaseURL.ui.uiEndpoint
 
 test.beforeEach(async ({ page }) => {
-    await page.goto(baseURL);
-  });
+  const basicLogin = new loginPage(page);
+
+  await page.goto(baseURL);
+  await basicLogin.loginProcedure();
+
+});
 
 test.describe('ui automation suite', () => {
   test('Basic login & logout', async ({ page }) => {
     const basicLogin = new loginPage(page);
-    const dashboardInv = new dashboardInventory(page);
-    //login to app
-    await basicLogin.loginProcedure();
+    const dashboardInv = new dashboardInventory(page);   
     //logout from app
     await dashboardInv.logoutProcedure();
     //verify login is visible
@@ -26,12 +28,9 @@ test.describe('ui automation suite', () => {
   }),
 
   test('Checkout item one item', async ({ page }) => {
-    const basicLogin = new loginPage(page);
     const dashboardInv = new dashboardInventory(page);
     const cart = new cartView(page);
     const checkout = new checkoutPage(page);  
-    //login to app
-    await basicLogin.loginProcedure();
     //add item to cart
     await dashboardInv.addToCartFull();
     //validate one item is in cart & click checkout

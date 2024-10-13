@@ -45,6 +45,13 @@ test.describe('ui automation suite', () => {
   }),
 
   test('Verify filter functionality', async ({ page }) => {
+    const dashboardInv = new dashboardInventory(page);
+    //change sorting on the inventory items
+    expect (dashboardInv.topLeftLocationAZ).toHaveText('Sauce Labs Backpack')
+    await dashboardInv.clickOneDefaultOption('hilo'); 
+    expect (dashboardInv.topLeftLocationHiLo).toHaveText('Sauce Labs Fleece Jacket')
+
+    //await dashboardInv.sortItems('az');
 
   })
 

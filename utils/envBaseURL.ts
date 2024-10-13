@@ -3,6 +3,6 @@ export default {
         apiEndpoint: 'https://reqres.in/api',
     },
     ui: {
-        uiEndpoint: 'https://www.saucedemo.com.',
+        uiEndpoint: 'https://www.saucedemo.com',
     }
 };

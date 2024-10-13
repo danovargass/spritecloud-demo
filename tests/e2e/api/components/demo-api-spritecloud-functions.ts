@@ -1,13 +1,8 @@
-import { Page } from "@playwright/test"
+import { Page, APIRequestContext } from "@playwright/test"
 
 export class demoApiFunctions {
-    constructor (private page: Page) {
+    readonly page: Page;
 
-    }
-    async 
+    constructor (page: Page) {}
 
-        // const responseBody = JSON.parse(await userList.text());
-        // console.log(responseBody);
-
-    
-};
+}

@@ -1,17 +1,8 @@
-import { Page } from "@playwright/test";
-import envBaseURL from "../../../../utils/envBaseURL";
-import schemaBody from "../../../../utils/schemaBody";
-
-
-const baseURLenv = envBaseURL.api.apiEndpoint;
+import { Page, APIRequestContext } from "@playwright/test";
 
 export class sharedFunctions {
+    readonly page: Page;
 
-    constructor (private page: Page) {}
+    constructor (page: Page) {}
 
-    async requestWithBody(request: any, data: any, expectedStatus: number){
-        const responseBody = await request.post(baseURLenv+'/register', data.JSON.stringify(schemaBody.register.data));
-        await responseBody.toBe(expectedStatus);
-
-    }
-};
+}

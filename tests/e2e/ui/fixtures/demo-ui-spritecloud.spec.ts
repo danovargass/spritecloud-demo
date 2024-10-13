@@ -9,10 +9,9 @@ const baseURL = envBaseURL.ui.uiEndpoint
 
 test.beforeEach(async ({ page }) => {
   const basicLogin = new loginPage(page);
-
+  //setting base url and login to app
   await page.goto(baseURL);
   await basicLogin.loginProcedure();
-
 });
 
 test.describe('ui automation suite', () => {
@@ -24,7 +23,6 @@ test.describe('ui automation suite', () => {
     //verify login is visible
     await basicLogin.loginCredsDiv();
     expect(await basicLogin.loginButton.isVisible()).toBeTruthy();   
-
   }),
 
   test('Checkout item one item', async ({ page }) => {
@@ -41,18 +39,15 @@ test.describe('ui automation suite', () => {
     await checkout.clickContinueStepOne();
     await checkout.clickFinishWthOneItemCart();
     expect(await checkout.completeHeader.isVisible()).toBeTruthy();
-
   }),
 
   test('Verify filter functionality', async ({ page }) => {
     const dashboardInv = new dashboardInventory(page);
-    //change sorting on the inventory items
+    //validate position of default AZ positioning
     expect (dashboardInv.topLeftLocationAZ).toHaveText('Sauce Labs Backpack')
+    //change sorting on the inventory items
     await dashboardInv.clickOneDefaultOption('hilo'); 
     expect (dashboardInv.topLeftLocationHiLo).toHaveText('Sauce Labs Fleece Jacket')
-
-    //await dashboardInv.sortItems('az');
-
   })
 
 })
